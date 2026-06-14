@@ -11,5 +11,9 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Ensure Nitro generates a Vercel-compatible output when deploying on Vercel.
+    // The plugin defaults to Cloudflare; explicitly set the preset to 'vercel'
+    // so build outputs land in /vercel/output with correct functions/static layout.
+    nitro: { preset: "vercel" },
   },
 });
